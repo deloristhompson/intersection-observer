@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<title>Intersection Observer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="/index.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<body class="w3-black">
+
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+        <img src="abstract-techno-background-with-connecting-lines.jpg" style="width:100%; border-radius: 50%;">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+            <i class="fa fa-home w3-xxlarge"></i>
+            <p>HOME</p>
+        </a>
+        <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-user w3-xxlarge"></i>
+            <p>ABOUT</p>
+        </a>
+        <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fas fa-code w3-xxlarge"></i>
+            <p>IMAGES</p>
+        </a>
+        <a href="#javascript" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fas fa-code w3-xxlarge"></i>
+            <p>JAVASCRIPT</p>
+        </a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" target="_blank">MDN</a>
+
+    </nav>
+
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+            <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+            <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+            <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+            <a href="#javascript" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+            <h1 class="w3-jumbo">Intersection Observer</h1>
+            <p>Asynchronously Observe Changes</p>
+            <img src="/abstract-techno-background-with-connecting-lines.jpg"
+                alt="Abstract Techno Background with Connecting Lines" class="w3-image" width="992" height="1108"
+                style="border-radius: 50%;">
+        </header>
+
+        <!-- About Section -->
+        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+            <h2 class="w3-text-light-grey">What is it?</h2>
+            <hr style="width:200px" class="w3-opacity">
+            <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Intersection
+                Observer API provides a way to asynchronously observe changes in the intersection of a target element
+                with an ancestor element or with a top-level document's viewport.</blockquote>
+            </p>
+            <h3 class="w3-padding-16 w3-text-light-grey">Observer Checklist</h3>
+            <p class="w3-wide w3-text-light-grey">Observer</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>An object set it to a new instance of the Intersection Observer constructor. We pass a
+                    reference/pointer to the callback function and the options hash.</blockquote>
+            </div>
+            <p class="w3-wide w3-text-light-grey">Observe</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Function provided by the API. Pass the target element you wish to observe here.</blockquote>
+            </div>
+            <p class="w3-wide w3-text-light-grey">Callback Function</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Triggered every time a change is observed. Accepts two arguments 1. the target(s) and the
+                    observer.
+                </blockquote>
+            </div>
+
+            <p class="w3-wide w3-text-light-grey">Options</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Optional key/value pairs; defines the behavior. Consists of a root, rootMargin, threshold
+                </blockquote>
+            </div>
+
+            <p class="w3-wide w3-text-light-grey">Root</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>This is the parent element or document object. The value must be an element within the DOM
+                    tree. The
+                    default value is the browsers viewport.</blockquote>
+            </div>
+
+            <p class="w3-wide w3-text-light-grey">RootMargin</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Margins around the root element that will grow and shrink the container. We set it similar
+                    to the CSS
+                    margin property. "5px 4px 12px 20px".</blockquote>
+            </div>
+
+            <p class="w3-wide w3-text-light-grey">Threshold</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>The percentage when the object we are observing is intersecting with the container. This
+                    will let the
+                    observer know when to react. It can be a single value or an array of values</blockquote>
+            </div>
+            <br>
+
+            <h3 class="w3-padding-24 w3-text-light-grey">Callback Function</h3>
+            <pre style="background-color: aliceblue; width: 100%;">
+                <code>
+                    let <var>callback </var> = (entries, observer) => {
+                    entries.forEach(entry => {
+                        
+                        if (entry.isIntersecting) {
+                            target.insertAdjacentHTML("beforeend", '')
+                            observer.disconnect();
+                        }
+                    });
+                };
+            </code>
+            </pre>
+
+            <p class="w3-wide w3-text-light-grey">isIntersecting</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Method provided by the API. True if the target element is intersecting with the
+                    root/viewport</blockquote>
+            </div>
+
+            <p class="w3-wide w3-text-light-grey">insertAdjacentHTML</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Attaches the image/video to the target (This is 100% optional, Mozilla and W3 Schools have a
+                    lot of methods you can choose from</blockquote>
+            </div>
+
+            <p class="w3-wide w3-text-light-grey">disconnect()</p>
+            <div class="w3-opacity w3-text-light-grey">
+                <blockquote>Method provided by the API. Stops watching the target element(s). Use
+                    <var>unobserve(entry)</var> if you want to stop observing a single element</blockquote>
+            </div>
+            <!-- End About Section -->
+        </div>
+
+        <div class="w3-padding-64 w3-content" id="photos">
+            <h2 class="w3-text-light-grey">Image</h2>
+            <hr style="width:200px" class="w3-opacity">
+
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half">
+                    <img src="https://www.w3schools.com/w3images/sailboat.jpg" style="width:100%">
+                    <!-- Intersected Video -->
+                    <div id="intersectionObserverVideo"></div>
+                </div>
+
+                <div class="w3-half">
+                    <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
+                    <img src="https://www.w3schools.com/w3images/p6.jpg" style="width:100%">
+                </div>
+            </div>
+        </div>
+
+        <!-- JavsScript Code Section -->
+        <div class="w3-padding-64 w3-content w3-text-grey" id="javascript">
+            <h2 class="w3-text-light-grey">JavaScript</h2>
+            <hr style="width:200px;" class="w3-opacity">
+
+            <div style="background-color: ivory;">
+                <pre><code>
+    let target = "";
+    window.addEventListener("load", (event) => {
+        target = document.getElementById("intersectionObserverVideo")
+        createObserver();
+    }, false);
+
+    let callback = (entries, observer) => {
+        const video = 'your_video_here'
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                target.insertAdjacentHTML("beforeend", video);
+                observer.disconnect();
+            }
+        });
+    }
+
+    createObserver = () => {
+        let options = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0
+        };
+
+        let observer = new IntersectionObserver(callback, options);
+
+        observer.observe(target)
+    }</code></pre>
+
+            </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+
+</body>
+
+</html>
