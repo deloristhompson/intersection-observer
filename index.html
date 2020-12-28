@@ -109,20 +109,7 @@
             <br>
 
             <h3 class="w3-padding-24 w3-text-light-grey">Callback Function</h3>
-            <pre style="background-color: aliceblue; width: 100%;">
-                <code>
-                    let <var>callback </var> = (entries, observer) => {
-                    entries.forEach(entry => {
-                        
-                        if (entry.isIntersecting) {
-                            target.insertAdjacentHTML("beforeend", '')
-                            observer.disconnect();
-                        }
-                    });
-                };
-            </code>
-            </pre>
-
+            <script src="https://gist.github.com/deloristhompson/ffeb0419f7cd02eb42d511a4e6e7b5ea.js"></script>
             <p class="w3-wide w3-text-light-grey">isIntersecting</p>
             <div class="w3-opacity w3-text-light-grey">
                 <blockquote>Method provided by the API. True if the target element is intersecting with the
@@ -167,35 +154,7 @@
             <hr style="width:200px;" class="w3-opacity">
 
             <div style="background-color: ivory;">
-                <pre><code>
-    let target = "";
-    window.addEventListener("load", (event) => {
-        target = document.getElementById("intersectionObserverVideo")
-        createObserver();
-    }, false);
-
-    let callback = (entries, observer) => {
-        const video = 'your_video_here'
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                target.insertAdjacentHTML("beforeend", video);
-                observer.disconnect();
-            }
-        });
-    }
-
-    createObserver = () => {
-        let options = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0
-        };
-
-        let observer = new IntersectionObserver(callback, options);
-
-        observer.observe(target)
-    }</code></pre>
-
+                <script src="https://gist.github.com/deloristhompson/6e4280ba0dcf1f9df8b5d79ed6f364f0.js"></script>
             </div>
         </div>
         <!-- END PAGE CONTENT -->
